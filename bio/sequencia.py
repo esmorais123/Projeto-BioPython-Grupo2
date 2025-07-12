@@ -31,7 +31,7 @@ class Sequencia:
             if base_especifica in bases:
                 count = count + 1 
         
-        percentual = count / tamanho
+        percentual = (count / tamanho) * 100
         return percentual 
 
     def complementar(self):
