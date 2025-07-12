@@ -20,3 +20,6 @@ class Sequencia:
 
     def __getitem__(self, index):
         return self.sequencia.__getitem__(index)
+
+    def calcular_tamanho(self):
+        return len(self.sequencia)
