@@ -1,3 +1,5 @@
+from bio.constantes import DNA_PARA_AMINOACIDO
+
 class Sequencia:
 
     def __init__(self, sequencia):
@@ -62,3 +64,15 @@ class Sequencia:
         for base in self.sequencia:
             sequencia_rna = sequencia_rna + conversor_de_bases[base]
         return Sequencia(sequencia_rna)
+    
+    def traduzir(self, parar=False):
+        proteina = ""
+
+        for i in range(0, len(self.sequencia) - 2, 3):
+            codon = self.sequencia[i:i+3]
+            aminoacido = DNA_PARA_AMINOACIDO.get(codon, "X")  
+            if parar and aminoacido == "*":
+                break
+            proteina += aminoacido
+
+        return proteina

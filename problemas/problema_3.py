@@ -6,12 +6,14 @@ def rodar_problema_3():
 
     organismos_fasta = ler_fasta(caminho_do_arquivo)
 
-
-    lista_nova = [] 
+    lista_com_mutacao = []
+    lista_sem_mutacao = []
 
     for organismo in organismos_fasta:
-         if organismo.sequencia[1000] == "G":
-            lista_nova.append(organismo.nome)
+        if organismo.sequencia[1000] == "G":
+            lista_com_mutacao.append(organismo.nome)
+        else:
+            lista_sem_mutacao.append(organismo.nome)
     
-
-    print ("Os organismos que possuem mutação no nucleotídeo de posição 1000 são: ", lista_nova)
+    print("Os organismos que possuem mutação no nucleotídeo de posição 1000 são: ", lista_com_mutacao)
+    print("Os organismos que NÃO possuem mutação no nucleotídeo de posição 1000 são: ", lista_sem_mutacao)
