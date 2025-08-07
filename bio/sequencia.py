@@ -1,4 +1,5 @@
 from bio.constantes import DNA_PARA_AMINOACIDO
+from bio.constantes import DNA_STOP_CODONS
 
 class Sequencia:
 
@@ -70,9 +71,15 @@ class Sequencia:
 
         for i in range(0, len(self.sequencia) - 2, 3):
             codon = self.sequencia[i:i+3]
-            aminoacido = DNA_PARA_AMINOACIDO.get(codon, "X")  
-            if parar and aminoacido == "*":
-                break
+
+            if codon in DNA_STOP_CODONS:
+                aminoacido = '*'
+            else:
+                aminoacido = DNA_PARA_AMINOACIDO.get(codon, "X")
+
             proteina += aminoacido
 
+            if parar and aminoacido == "*":
+                break
+            
         return proteina

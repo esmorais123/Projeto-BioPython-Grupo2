@@ -10,7 +10,7 @@ def rodar_problema_3():
     lista_sem_mutacao = []
 
     for organismo in organismos_fasta:
-        if organismo.sequencia[1000] == "G":
+        if organismo.sequencia[999] == "G":
             lista_com_mutacao.append(organismo.nome)
         else:
             lista_sem_mutacao.append(organismo.nome)
